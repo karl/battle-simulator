@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 const Home = () => (
   <div className="container">
@@ -6,49 +6,103 @@ const Home = () => (
       <title>Battle Simulator</title>
     </Head>
 
-    <main>
-      <h1 className="title">
-        Battle Simulator
-      </h1>
+    <h1 className="title">Battle Simulator</h1>
 
-      <p className="description">
-        Under construction...
-      </p>
-    </main>
+    <div className="diorama">
+      <div className="character">
+        <div className="name">Player</div>
+        <div className="health">♥️ 100</div>
+      </div>
+      <div className="character">
+        <div className="name">Monster</div>
+        <div className="health">♥️ 100</div>
+      </div>
+    </div>
+
+    <div className="combat">
+      <div className="dice">
+        <div>⚄</div>
+        <div>⚃</div>
+      </div>
+      <div className="result">⚔️ -6</div>
+      <div className="dice">
+        <div>⚀</div>
+        <div>⚁</div>
+      </div>
+    </div>
+
+    <div className="actions">
+      <button className="attack-button">Attack!</button>
+    </div>
 
     <style jsx>{`
       .container {
         min-height: 100vh;
-        padding: 0 0.5rem;
+        padding: 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      main {
-        padding: 5rem 0;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        align-items: stretch;
       }
 
       .title {
         margin: 0;
-        line-height: 1.15;
-        font-size: 4rem;
-      }
-
-      .title,
-      .description {
+        padding: 10px;
+        line-height: 1;
+        font-size: 16px;
         text-align: center;
+        color: #888888;
       }
 
-      .description {
-        line-height: 1.5;
-        font-size: 1.5rem;
+      .diorama {
+        display: flex;
+        padding: 20px;
+      }
+
+      .character {
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      .health {
+        color: #ce2500;
+      }
+
+      .combat {
+        display: flex;
+        padding: 20px;
+        align-items: center;
+      }
+
+      .dice {
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 70px;
+        line-height: 1;
+        color: #222222;
+      }
+
+      .result {
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 40px;
+        line-height: 1;
+        color: #ce2500;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .attack-button {
+        font-size: 20px;
+        background: #006fb1;
+        color: #f5f5f5;
+        border: none;
+        border-radius: 30px;
+        padding: 10px 20px;
       }
     `}</style>
 
@@ -66,6 +120,6 @@ const Home = () => (
       }
     `}</style>
   </div>
-)
+);
 
-export default Home
+export default Home;
