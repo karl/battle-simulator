@@ -1,30 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+# Battle Simulator
 
-## Getting Started
+A simple player versus monster battle simulator, done as a technical test.
 
-First, run the development server:
+## Play Online
+
+The Battle Simulator is deployed online at:
+
+https://battle-simulator.now.sh/
+
+## Getting Started Locally
+
+Install dependencies and run dev server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+yarn && yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the Battle Simulator.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Production Build
 
-## Learn More
+```bash
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+You can run the production build locally using:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
+This is useful to check the production build behaves as expected and for performance testing.
 
-## Deploy on ZEIT Now
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We use https://zeit.co to automatically deployment any changes to this repo.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The `master` branch is automatically deployed to https://battle-simulator.now.sh/
