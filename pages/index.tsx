@@ -128,7 +128,10 @@ const Home = () => {
           disabled={
             state.state === States.VICTORY || state.state === States.DEATH
           }
-          onClick={() => dispatch({ type: Actions.ATTACK })}
+          onClick={event => {
+            dispatch({ type: Actions.ATTACK });
+            event.preventDefault();
+          }}
         >
           Attack!
         </button>
