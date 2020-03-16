@@ -5,6 +5,15 @@ const roll = () => {
   return Math.floor(Math.random() * 6) + 1;
 };
 
+const diceMap = {
+  1: "⚀",
+  2: "⚁",
+  3: "⚂",
+  4: "⚃",
+  5: "⚄",
+  6: "⚅"
+};
+
 enum Actions {
   ATTACK = "ATTACK"
 }
@@ -90,28 +99,27 @@ const Home = () => {
       </div>
 
       <div className="combat">
-        {state.state === States.COMBAT && (
+        {state.state !== States.READY && (
           <>
             <div className="dice">
-              <div>{state.playerDice[0]}</div>
-              <div>{state.playerDice[1]}</div>
+              <div>{diceMap[state.playerDice[0]]}</div>
+              <div>{diceMap[state.playerDice[1]]}</div>
             </div>
             <div className="attack-result">
               {state.playerDamage > 0 ? "-" + state.playerDamage : ""} ⚔️{" "}
               {state.monsterDamage > 0 ? "-" + state.monsterDamage : ""}
             </div>
             <div className="dice">
-              <div>{state.monsterDice[0]}</div>
-              <div>{state.monsterDice[1]}</div>
+              <div>{diceMap[state.monsterDice[0]]}</div>
+              <div>{diceMap[state.monsterDice[1]]}</div>
             </div>
           </>
         )}
-        {state.state === States.VICTORY && (
-          <div className="combat-result">🎉 Victory</div>
-        )}
-        {state.state === States.DEATH && (
-          <div className="combat-result">☠️ Death</div>
-        )}
+      </div>
+
+      <div className="combat-result">
+        {state.state === States.VICTORY && "🎉 Victory"}
+        {state.state === States.DEATH && "☠️ Death"}
       </div>
 
       <div className="actions">
@@ -128,7 +136,7 @@ const Home = () => {
 
       <style jsx>{`
         .container {
-          min-height: 100vh;
+          min-height: 90vh;
           padding: 0;
           display: flex;
           flex-direction: column;
@@ -170,13 +178,13 @@ const Home = () => {
         .dice {
           flex: 1 1 auto;
           text-align: center;
-          font-size: 70px;
-          line-height: 1;
+          font-size: 110px;
+          line-height: 80px;
           color: #222222;
         }
 
         .attack-result {
-          flex: 1 1 auto;
+          flex: 1 1 100%;
           text-align: center;
           font-size: 40px;
           line-height: 1;
@@ -184,7 +192,12 @@ const Home = () => {
         }
 
         .combat-result {
+          padding: 20px;
           font-size: 30px;
+          line-height: 35px;
+          text-align: center;
+          height: 35px;
+          min-height: 35px;
         }
 
         .actions {
